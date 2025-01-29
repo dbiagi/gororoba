@@ -4,9 +4,9 @@ import (
 	"math/rand/v2"
 	"time"
 
-	"gororoba/converter"
-	"gororoba/domain"
-	"gororoba/repository"
+	"gororoba/internal/converter"
+	"gororoba/internal/domain"
+	"gororoba/internal/repository"
 
 	"github.com/google/uuid"
 )

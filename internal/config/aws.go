@@ -3,7 +3,7 @@ package config
 import (
 	"log/slog"
 
-	"gororoba/domain"
+	"gororoba/internal/domain"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"

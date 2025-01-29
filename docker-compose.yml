@@ -5,11 +5,10 @@ services:
       - "4566:4566"
       - "4571:4571"
     environment:
-      - SERVICES=dynamodb
-      - DEBUG=1
-      - DATA_DIR=/tmp/localstack/data
+      SERVICES: dynamodb
+      DEBUG: 1
     volumes: 
-      - "dynamodb_data:/tmp/localstack/data"
+      - localstack_data:/var/lib/localstack
 
 volumes:
-  dynamodb_data: {}
+  localstack_data: {}

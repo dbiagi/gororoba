@@ -2,7 +2,7 @@ package main
 
 import (
 	"gororoba/cmd/commands"
-	"gororoba/config"
+	"gororoba/internal/config"
 
 	"github.com/spf13/cobra"
 )
@@ -12,7 +12,6 @@ func main() {
 
 	rootCmd := rootCmd()
 	rootCmd.PersistentFlags().StringVarP(&env, "env", "e", "development", "Environment to run the application")
-	rootCmd.Root().MarkPersistentFlagRequired("env")
 	rootCmd.AddCommand(commands.NewCreateRecipesCommand())
 	rootCmd.AddCommand(commands.NewServeCommand())
 	rootCmd.Execute()

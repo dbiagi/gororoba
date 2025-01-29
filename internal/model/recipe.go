@@ -1,7 +1,7 @@
 package model
 
 import (
-	"gororoba/domain"
+	"gororoba/internal/domain"
 	"time"
 )
 

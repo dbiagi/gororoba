@@ -3,10 +3,10 @@ package commands
 import (
 	"encoding/json"
 	"fmt"
-	"gororoba/config"
-	"gororoba/domain"
-	"gororoba/handler"
-	"gororoba/repository"
+	"gororoba/internal/config"
+	"gororoba/internal/domain"
+	"gororoba/internal/handler"
+	"gororoba/internal/repository"
 	"log/slog"
 	"os"
 

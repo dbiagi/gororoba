@@ -2,8 +2,8 @@ package handler_test
 
 import (
 	"fmt"
-	"gororoba/domain"
-	"gororoba/handler"
+	"gororoba/internal/domain"
+	"gororoba/internal/handler"
 	"testing"
 	"time"
 

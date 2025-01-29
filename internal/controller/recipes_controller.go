@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"gororoba/handler"
+	"gororoba/internal/handler"
 	"net/http"
 	"time"
 )

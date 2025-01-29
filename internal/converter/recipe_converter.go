@@ -3,8 +3,8 @@ package converter
 import (
 	"time"
 
-	"gororoba/domain"
-	"gororoba/model"
+	"gororoba/internal/domain"
+	"gororoba/internal/model"
 )
 
 func ToRecipeModel(r domain.Recipe) model.RecipeModel {

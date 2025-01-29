@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"gororoba/controller"
+	"gororoba/internal/controller"
 
 	"github.com/spf13/cobra"
 )

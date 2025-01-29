@@ -2,10 +2,11 @@ package handler_test
 
 import (
 	"testing"
+	"time"
 
-	"gororoba/handler"
-	testdata_fixtures "gororoba/testdata/fixtures"
-	testdata_mocks "gororoba/testdata/mocks"
+	"gororoba/internal/handler"
+	testdata_fixtures "gororoba/internal/testdata/fixtures"
+	testdata_mocks "gororoba/internal/testdata/mocks"
 
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
@@ -14,6 +15,7 @@ import (
 type testSetup struct {
 	recipeHandler        *handler.RecipesHandler
 	recipeRepositoryMock *testdata_mocks.MockRecipeRepositoryInterface
+	recipeSuggestionMock *testdata_mocks.MockSuggestionHandlerInterface
 }
 
 func setup(t *testing.T) testSetup {
@@ -25,6 +27,7 @@ func setup(t *testing.T) testSetup {
 	return testSetup{
 		recipeHandler:        &h,
 		recipeRepositoryMock: rr,
+		recipeSuggestionMock: sh,
 	}
 }
 
@@ -58,4 +61,22 @@ func TestCreateRecipe(t *testing.T) {
 	assert.NotEmpty(t, result.Id)
 	assert.NotEmpty(t, result.CreatedAt)
 	assert.NotEmpty(t, result.UpdatedAt)
+}
+
+func TestGivenACategorySuggestionShouldReturnARecipe(t *testing.T) {
+	// Given
+	s := setup(t)
+	now := time.Now()
+	suggestedCategory := "Dessert"
+	s.recipeSuggestionMock.EXPECT().GetSuggestedCategoryByTime(now).Return(suggestedCategory)
+	s.recipeRepositoryMock.EXPECT().GetRecipesByCategory(suggestedCategory).Return(testdata_fixtures.GetRecipesWithCategory(suggestedCategory))
+
+	// When
+	result := s.recipeHandler.GetSuggestion(now)
+
+	// Then
+	assert.NotEmpty(t, result.Id)
+	assert.NotEmpty(t, result.CreatedAt)
+	assert.NotEmpty(t, result.UpdatedAt)
+	assert.Equal(t, suggestedCategory, result.Category)
 }

@@ -3,8 +3,8 @@ package repository
 import (
 	"log/slog"
 
-	"gororoba/domain"
-	"gororoba/model"
+	"gororoba/internal/domain"
+	"gororoba/internal/model"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -83,4 +83,4 @@ func (r RecipeRepository) CreateRecipe(recipe model.RecipeModel) *domain.Error {
 	return nil
 }
 
-//go:generate mockgen -destination=./../testdata/mocks/recipe_repository_mock.go -package=mocks gororoba/repository  RecipeRepositoryInterface
+//go:generate mockgen -destination=./../testdata/mocks/recipe_repository_mock.go -package=mocks gororoba/internal/repository  RecipeRepositoryInterface

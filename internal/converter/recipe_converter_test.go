@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"gororoba/converter"
-	"gororoba/domain"
-	"gororoba/model"
+	"gororoba/internal/converter"
+	"gororoba/internal/domain"
+	"gororoba/internal/model"
 
 	"github.com/stretchr/testify/assert"
 )

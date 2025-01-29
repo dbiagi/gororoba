@@ -12,10 +12,10 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/spf13/cobra"
 
-	"gororoba/config"
-	"gororoba/controller"
-	"gororoba/handler"
-	"gororoba/repository"
+	"gororoba/internal/config"
+	"gororoba/internal/controller"
+	"gororoba/internal/handler"
+	"gororoba/internal/repository"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )

@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"gororoba/domain"
+	"gororoba/internal/domain"
 	"time"
 )
 
@@ -41,4 +41,4 @@ func isNight(t time.Time) bool {
 	return t.Hour() >= 18 && t.Hour() < 24
 }
 
-//go:generate mockgen -destination=../testdata/mocks/suggestion_handler_mock.go -package=mocks gororoba/handler SuggestionHandlerInterface
+//go:generate mockgen -destination=../testdata/mocks/suggestion_handler_mock.go -package=mocks gororoba/internal/handler SuggestionHandlerInterface

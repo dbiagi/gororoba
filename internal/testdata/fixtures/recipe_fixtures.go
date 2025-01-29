@@ -3,7 +3,7 @@ package testdata_fixtures
 import (
 	"time"
 
-	"gororoba/domain"
+	"gororoba/internal/domain"
 )
 
 func GetRecipesWithCategory(category string) []domain.Recipe {
