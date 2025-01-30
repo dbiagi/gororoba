@@ -1,4 +1,4 @@
-package test
+package tests
 
 import (
 	"context"
@@ -32,4 +32,6 @@ func TestSetup(t *testing.T) {
 		Up(ctx, tc.Wait(true))
 
 	require.NoError(t, err, "Failed to start services")
+
+	StartTestServer()
 }

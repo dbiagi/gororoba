@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -28,7 +29,7 @@ type AppConfig struct {
 }
 
 type WebConfig struct {
-	Port            string
+	Port            int
 	IdleTimeout     time.Duration
 	ReadTimeout     time.Duration
 	WriteTimeout    time.Duration
@@ -53,10 +54,11 @@ type DynamoDBConfig struct {
 
 func LoadConfig(env string) Configuration {
 	configs := loadFromFile(env)
+	port, _ := strconv.Atoi(configs["PORT"])
 
 	return Configuration{
 		WebConfig: WebConfig{
-			Port:            configs["PORT"],
+			Port:            port,
 			IdleTimeout:     time.Second * 10,
 			ReadTimeout:     time.Second * 10,
 			WriteTimeout:    time.Second * 10,
